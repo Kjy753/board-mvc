@@ -50,4 +50,23 @@ public class BoardServiceTests {
 		
 		service.getList().forEach(board -> log.info(board));
 	}
+	
+	@Test
+	public void testUpdate() {
+		
+		BoardVO board = service.get(3L);
+		
+		if(board == null) {
+			return;
+		}
+		
+		board.setTitle("title 수정");
+		log.info("수정된 결과 : " + service.modify(board));
+	}
+	
+	@Test
+	public void testDelete() {
+		
+		log.info("삭제된 결과 : " + service.remove(7L));
+	}
 }

@@ -38,13 +38,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean modify(BoardVO board) {
 		
-		return false;
+		log.info("----수정 작업----" + board);
+		return mapper.update(board) == 1;
 	}
 
 	@Override
 	public boolean remove(Long bno) {
 		
-		return false;
+		log.info("----삭제 작업----" + bno);
+		return mapper.delete(bno) == 1;
 	}
 
 	@Override
