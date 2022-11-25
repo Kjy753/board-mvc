@@ -21,4 +21,8 @@
   	insert into board_mvc (bno,title,content,writer)
     values (#{bno}, #{title}, #{content}, #{writer})
   </insert>
+  
+  <select id="read" resultType="com.kjy.domain.BoardVO">
+  	select * from board_mvc where bno = #{bno}
+  </select>
 </mapper>
