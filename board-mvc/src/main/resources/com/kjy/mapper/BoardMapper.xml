@@ -25,4 +25,18 @@
   <select id="read" resultType="com.kjy.domain.BoardVO">
   	select * from board_mvc where bno = #{bno}
   </select>
+  
+  <delete id="delete">
+  	delete from board_mvc where bno = #{bno}
+  </delete>
+  
+  <update id="update">
+  	update board_mvc
+  	set title = #{title},
+  	content = #{content},
+  	writer = #{writer},
+  	updatedate = sysdate
+  	where bno = #{bno}
+  	
+  </update>
 </mapper>
