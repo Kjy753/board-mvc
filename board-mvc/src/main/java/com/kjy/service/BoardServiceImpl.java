@@ -50,7 +50,8 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<BoardVO> getList() {
 		
-		return null;
+		log.info("----목록 작업----");
+		return mapper.getList();
 	}
 	
 	
