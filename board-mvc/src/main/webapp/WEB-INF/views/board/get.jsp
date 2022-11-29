@@ -34,16 +34,19 @@
                               
                                	<div class="form-group">
                                   <label>Content</label>
-                                  <textarea rows="5" cols="50" class="form-control"  name="content"><c:out value="${board.content}"/></textarea>
+                                  <textarea rows="5" cols="50" class="form-control"  name="content" readonly="readonly"><c:out value="${board.content}"/></textarea>
                               	</div>
                               
                               	<div class="form-group">
                                   <label>Writer</label>
                                   <input class="form-control" name="writer" readonly="readonly" value='<c:out value="${board.writer}"/>'>
                               	</div>
-                              	<button type="submit" class="btn btn-default">Modify</button>
-                              	<button type="reset" class="btn btn-default">List</button>
-                       
+                              	
+                              	<button data-oper='modify' class="btn btn-default">Modify</button>
+                              	<button data-oper='list' class="btn btn-info">List</button>
+                       			<form id ='operForm'  >
+                       			<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
+                       			</form>
                           
                         </div>
                         <!-- /.panel-body -->
@@ -53,7 +56,26 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-           
+<script>
+$(document).ready(function(){
+	
+	var operForm = $("#operForm");
+	
+	$("button[data-oper='modify'] ").on("click", function(e){
+		operForm.attr("action", "/board/modify").attr("method","get").submit();
+	});
+	
+	$("button[data-oper='list'] ").on("click", function(e){
+		operForm.find("#bno").remove();
+		operForm.attr("action","/board/list")
+		operForm.attr("method","get")
+		operForm.submit();
+		//operForm.submit();
+		
+	});
+	
+});
+</script>           
             
             
         
