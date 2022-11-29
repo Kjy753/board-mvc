@@ -48,10 +48,10 @@ public class BoardController {
 		return "redirect:/board/list";	
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get","/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		
-		log.info("/get");
+		log.info("/get or Modify");
 		
 		model.addAttribute("board", service.get(bno));
 	}
@@ -63,7 +63,7 @@ public class BoardController {
 		log.info("modify: " + board);
 		
 		if(service.modify(board)) {
-			rttr.addFlashAttribute("result", "succes");
+			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list";
 	}
