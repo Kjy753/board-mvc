@@ -29,15 +29,15 @@
                               
                                	<div class="form-group">
                                   <label>Content</label>
-                                  <textarea rows="5" cols="50" class="form-control"  name="content"></textarea>
+                                  <textarea rows="5" cols="50" class="form-control"  name="content" style="resize: none"></textarea>
                               	</div>
                               
                               	<div class="form-group">
                                   <label>Writer</label>
                                   <input class="form-control" name="writer">
                               	</div>
-                              	<button type="submit" class="btn btn-default">Submit Button</button>
-                              	<button type="reset" class="btn btn-default">Reset Button</button>
+                              	<button type="submit" class="btn btn-info">작성</button>
+                              	<button type="reset" class="btn btn-danger">초기화</button>
                             </form>
                           
                         </div>

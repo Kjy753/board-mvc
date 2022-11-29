@@ -34,7 +34,7 @@
                               
                                	<div class="form-group">
                                   <label>Content</label>
-                                  <textarea rows="5" cols="50" class="form-control"  name="content" readonly="readonly"><c:out value="${board.content}"/></textarea>
+                                  <textarea rows="5" cols="50" class="form-control"  name="content" readonly="readonly" style="resize: none"><c:out value="${board.content}"/></textarea>
                               	</div>
                               
                               	<div class="form-group">
