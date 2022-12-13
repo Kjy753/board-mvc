@@ -39,4 +39,18 @@
   	where bno = #{bno}
   	
   </update>
+  
+  <select id="getListWithPaging" resultType="com.kjy.domain.BoardVO">
+  <![CDATA[
+   select * from
+   (
+   select /*+ INDEX_DESC(board_mvc pk_board) */ rownum rn, bno, title, writer
+   from board_mvc
+   where bno > 0 and rownum > 0 and rownum <= (#{pageNum} * #{amount})
+   )
+   where rn > (#{pageNum} -1) * #{amount}
+ 
+  ]]>
+  
+  </select>
 </mapper>
