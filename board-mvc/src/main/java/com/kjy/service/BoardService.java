@@ -3,6 +3,7 @@ package com.kjy.service;
 import java.util.List;
 
 import com.kjy.domain.BoardVO;
+import com.kjy.domain.Criteria;
 
 public interface BoardService {
 	 
@@ -19,6 +20,8 @@ public interface BoardService {
 	public boolean remove(Long bno);
 	
 	/* 목록 출력 작업 */
-	public List<BoardVO> getList();
-	
+	//public List<BoardVO> getList();
+
+	/* 페이징 목록 출력 작업 */
+	public List<BoardVO> getList(Criteria cri);
 }

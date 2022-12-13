@@ -44,7 +44,7 @@
   <![CDATA[
    select * from
    (
-   select /*+ INDEX_DESC(board_mvc pk_board) */ rownum rn, bno, title, writer
+   select /*+ INDEX_DESC(board_mvc pk_board) */ rownum rn, bno, title, writer, regdate, updateDate
    from board_mvc
    where bno > 0 and rownum > 0 and rownum <= (#{pageNum} * #{amount})
    )
