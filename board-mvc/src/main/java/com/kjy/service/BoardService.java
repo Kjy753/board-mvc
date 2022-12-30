@@ -24,4 +24,7 @@ public interface BoardService {
 
 	/* 페이징 목록 출력 작업 */
 	public List<BoardVO> getList(Criteria cri);
+	
+	//전체 데이터 조회
+	public int getTotal(Criteria cri);
 }

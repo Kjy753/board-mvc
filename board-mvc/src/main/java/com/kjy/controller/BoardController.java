@@ -33,7 +33,12 @@ public class BoardController {
 	log.info("list......");
 	log.info("========="+cri+"=====================");
 	model.addAttribute("list", service.getList(cri));
-	model.addAttribute("pageMaker", new PageDTO(cri, 123));
+	//model.addAttribute("pageMaker", new PageDTO(cri, 123));
+	
+	int total = service.getTotal(cri);
+	
+	log.info("total count : " + total);
+	model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	@GetMapping("register")
@@ -77,7 +82,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr	) {
+	public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		
 		log.info("remove..." + bno);
 		

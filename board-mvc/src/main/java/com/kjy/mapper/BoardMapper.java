@@ -23,5 +23,8 @@ public interface BoardMapper {
 	public int update(BoardVO board);
 	
 	public List<BoardVO> getListWithPaging(Criteria cri);
+	
+	//실제 모든 게시물의 수
+	public int getTotalCount(Criteria cri);
 
 }
