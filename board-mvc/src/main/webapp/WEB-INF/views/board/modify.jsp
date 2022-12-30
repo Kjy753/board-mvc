@@ -44,6 +44,9 @@
                               	<button class="btn btn-default" data-oper='modify'>Modify</button>
                               	<button class="btn btn-danger" data-oper='remove'>Remove</button>
                               	<button class="btn btn-info" data-oper='list'>List</button>
+                              	
+                              	<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
+                       			<input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
                        		</form>
                           
                         </div>
@@ -69,8 +72,15 @@ $(document).ready(function(){
 		console.log(operation);
 		
 		if(operation === 'list'){
-			self.location = "/board/list";
-			return;
+			formObj.attr("action" ,"/board/list").attr("method","get");
+			var pageNumTag = $("input[name='pageNum']").clone();
+			var amountTag = $("input[name='amount']").clone();
+			//list 버튼 클릭시 form 태그 내 필요 부분만 잠시 복사
+			formObj.empty();
+			//태그 내에 내용 삭제
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
+			// 다시 추가 
 		}else if(operation === 'remove'){
 			formObj.attr("action" ,"/board/remove").attr("method","post");
 		}else if(operation === 'modify'){
